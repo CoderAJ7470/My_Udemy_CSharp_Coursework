@@ -4,13 +4,8 @@ Console.WriteLine("[A]dd a Todo.");
 Console.WriteLine("[R]emove a Todo.");
 Console.WriteLine("[E]xit.");
 
-string userInput = "A";
-Console.WriteLine(userInput);
+string userInput = Console.ReadLine();
+Console.WriteLine("User Input: " + userInput);
 
-userInput = "ABC";
-Console.WriteLine(userInput);
-
-int number = 2;
-number = 7;
-
-Console.ReadKey();
+// pauses program running until the user presses any keyboard key
+Console.ReadKey(); 
