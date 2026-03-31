@@ -1,0 +1,1 @@
+A repository for all of my C# code. I am learning C# from the [Ultimate C# Masterclass for 2026](https://www.udemy.com/course/ultimate-csharp-masterclass).
