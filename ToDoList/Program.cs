@@ -6,6 +6,7 @@ Console.WriteLine("[E]xit.");
 
 string userInput = Console.ReadLine();
 Console.WriteLine("User Input: " + userInput);
+userInput = "Wisconsin Six Cheese Pizza."; // this line is here to see how the debugger works
 
 // pauses program running until the user presses any keyboard key
 Console.ReadKey(); 
