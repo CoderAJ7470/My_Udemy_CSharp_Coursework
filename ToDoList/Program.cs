@@ -5,8 +5,13 @@ Console.WriteLine("[R]emove a Todo.");
 Console.WriteLine("[E]xit.");
 
 string userInput = Console.ReadLine();
-Console.WriteLine("User Input: " + userInput);
-userInput = "Wisconsin Six Cheese Pizza."; // this line is here to see how the debugger works
+
+// Section 2, Lesson 27 - boolean type
+bool someBoolean = true; // explicitly boolean declaration and initialization
+var anotherBoolean = false; // implcit boolean declaration and initialization
+
+// Another example
+bool isUserInputABC = userInput == "ABC";
 
 // pauses program running until the user presses any keyboard key
 Console.ReadKey(); 
