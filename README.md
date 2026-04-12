@@ -34,4 +34,8 @@ var word = "Boeing";
 var numberBeFifteen = 15;
 
 // pauses program running until the user presses any keyboard key
-Console.ReadKey(); 
+Console.ReadKey();
+
+# Section 2, Lesson 32
+
+All paths in a non-void method must return a value
