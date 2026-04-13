@@ -3,5 +3,6 @@
     <File Path=".gitignore" />
     <File Path="README.md" />
   </Folder>
+  <Project Path="Calculator/Sec2_Calculator.csproj" Id="fcae541c-3c01-477d-b116-86310bc636d2" />
   <Project Path="ToDoList/ToDoList.csproj" />
 </Solution>
