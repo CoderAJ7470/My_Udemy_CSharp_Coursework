@@ -1,5 +1,5 @@
 ﻿/**
- * Create a simple calculator that takes two integers from user input and returns the sum of both.
+ * Create a simple calculator that takes two integers from user input.
  * The user can enter "A" or "a" for addition, and similar for subtraction and multiplication.
  * If the user enters an invalid choice for the operation or leaves that blank, the program should let the user know as such and still allow the user to terminate the program by pressing any key.
  */
