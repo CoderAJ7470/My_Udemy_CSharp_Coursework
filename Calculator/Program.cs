@@ -49,17 +49,17 @@ void performOperation(string userInput)
     if (userInput == "a")
     {
         var sum = integerA + integerB;
-        showOperationSummary("sum", integerA, integerB, sum);
+        showOperationSummary("addition", integerA, integerB, sum);
     }
     else if (userInput == "s")
     {
         var difference = integerA - integerB;
-        showOperationSummary("difference", integerA, integerB, difference);
+        showOperationSummary("subtraction", integerA, integerB, difference);
     }
     else if (userInput == "m")
     {
         var product = integerA * integerB;
-        showOperationSummary("product", integerA, integerB, product);
+        showOperationSummary("multiplication", integerA, integerB, product);
     }
     else
     {
