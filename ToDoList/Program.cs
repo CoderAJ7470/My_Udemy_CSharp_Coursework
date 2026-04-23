@@ -1,72 +1,33 @@
-﻿//// String interpolation in C#
-//int a = 4, b = 2, c = 10; // can do this in JS also, just with let or var
+﻿// Multidimensional arrays - Section 2, Lesson 56
+char[,] letters = new char[2, 3]; // declares a new array with 2 rows and three columns
 
-//Console.WriteLine($"The first number is {a}, the second is {b} and the third is {c}.");
-//Console.WriteLine($"The sum of all three is {a + b + c}");
+// Adding data to the 2D array above
+letters[0, 0] = 'A';
+letters[0, 1] = 'B';
+letters[0, 2] = 'C';
+letters[1, 0] = 'D';
+letters[1, 1] = 'E';
+letters[1, 2] = 'F';
 
-//Console.WriteLine("What would you like to do?");
-//Console.WriteLine("[S]ee all todos");
-//Console.WriteLine("[A]dd a todo");
-//Console.WriteLine("[R]emove a todo");
-//Console.WriteLine("[E]xit");
+// Print out elements to the console
+var height = letters.GetLength(0);
+var width = letters.GetLength(1);
 
-//var userChoice = Console.ReadLine();
-
-//switch (userChoice)
-//{
-//    case "s":
-//    case "S":
-//        PrintSelectedOption("See all todos");
-//        break;
-//    case "a":
-//    case "A":
-//        PrintSelectedOption("Add a todo");
-//        break;
-//    case "r":
-//    case "R":
-//        PrintSelectedOption("Remove a todo");
-//        break;
-//    case "e":
-//    case "E":
-//        PrintSelectedOption("Exit the program");
-//        break;
-//    default:
-//        Console.WriteLine("Sorry, invalid choice.");
-//        break;
-//}
-
-//void PrintSelectedOption(string choice)
-//{
-//    Console.WriteLine($"You selected {choice}");
-//}
-
-Console.WriteLine("Please enter the student's points:");
-var studentPoints = Console.ReadLine();
-
-if (int.TryParse(studentPoints, out int points) && !string.IsNullOrWhiteSpace(studentPoints))
+for (int i = 0; i < height; i++)
 {
-    points = int.Parse(studentPoints);
-
-    char studentGrade = ConvertPointsToGrade(points);
-    Console.WriteLine($"This student's grade is a {studentGrade}");
-}
-else
-{
-    Console.WriteLine("Sorry, you must enter a valid number. Please try again.");
-}
-
-// Switch Expressions
-char ConvertPointsToGrade(int studentPoints)
-{
-    return studentPoints switch
+    for (int j = 0; j < width; j++)
     {
-        >= 90 => 'A',
-        >= 80 => 'B',
-        >= 70 => 'C',
-        >= 60 => 'D',
-        _ => 'F', // underscore = "wildcard", same as the default keyword in a regular switch
-    }; // The closing brace bracket of a switch expression requires a semicolon after it
+        Console.WriteLine($"Value at {i}, {j} is {letters[i, j]}");
+        Console.WriteLine("\nPress any key to exit.");
+    }
+
 }
 
-// pauses program running until the user presses any keyboard key
+// Can also declare and initialize a 2D array like so:
+var letters2 = new char[,]
+{
+    {'A', 'B', 'C'},
+    {'D', 'E', 'F'}
+};
+
 Console.ReadKey();
