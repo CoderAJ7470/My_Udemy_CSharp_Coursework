@@ -1,33 +1,40 @@
-﻿// Multidimensional arrays - Section 2, Lesson 56
-char[,] letters = new char[2, 3]; // declares a new array with 2 rows and three columns
+﻿// Lists - Section 2, Lesson 58
 
-// Adding data to the 2D array above
-letters[0, 0] = 'A';
-letters[0, 1] = 'B';
-letters[0, 2] = 'C';
-letters[1, 0] = 'D';
-letters[1, 1] = 'E';
-letters[1, 2] = 'F';
-
-// Print out elements to the console
-var height = letters.GetLength(0);
-var width = letters.GetLength(1);
-
-for (int i = 0; i < height; i++)
+var words = new List<string>
 {
-    for (int j = 0; j < width; j++)
-    {
-        Console.WriteLine($"Value at {i}, {j} is {letters[i, j]}");
-        Console.WriteLine("\nPress any key to exit.");
-    }
+    "one",
+    "two"
+};
 
+foreach (var word in words)
+{
+    Console.WriteLine(word);
 }
 
-// Can also declare and initialize a 2D array like so:
-var letters2 = new char[,]
+var moreWords = new[] { "three", "four", "five", "six" };
+
+// AddRange is a method that adds/appends a given array or list to the end of an existing List
+words.AddRange(moreWords);
+
+Console.WriteLine("\nAfter adding more words:\n");
+foreach (var word in words)
 {
-    {'A', 'B', 'C'},
-    {'D', 'E', 'F'}
-};
+    Console.WriteLine(word);
+}
+
+// Some handy properties and methods that can be used with Lists
+// Count
+Console.WriteLine($"The current length of \"words\" is {words.Count}");
+
+// Can also use IndexOf method to get a given element's index in the List
+Console.WriteLine($"The index of \"four\" is {words.IndexOf("four")}");
+
+// Another method to use with Lists is Contains
+Console.WriteLine($"Does \"five\" exist in the List? {words.Contains("five")}");
+Console.WriteLine($"Does \"eight\" exist in the List? {words.Contains("eight")}");
+
+// Last but not least - Clear - which removes all elements in the List
+words.Clear();
+Console.WriteLine($"Length of \"words\" after clearing all elements is {words.Count}");
 
 Console.ReadKey();
