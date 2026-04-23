@@ -39,3 +39,7 @@ Console.ReadKey();
 # Section 2, Lesson 32
 
 All paths in a non-void method must return a value
+
+# Section 2, Lesson 55
+
+- You can access individual indices before the last one, in an array like this: numbers[^1], numbers[^2]. The carat symbol tells the compiler to look for that particular index from the last one.
