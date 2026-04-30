@@ -202,6 +202,8 @@ void executeUserOption(char option)
             break;
     }
 }
+
+// Runs the whole program
 void runProgram()
 {
     while (userInput != "E" || userInput != "e")
