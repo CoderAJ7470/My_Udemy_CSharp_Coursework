@@ -5,4 +5,5 @@
   </Folder>
   <Project Path="Calculator/Sec2_Calculator.csproj" Id="fcae541c-3c01-477d-b116-86310bc636d2" />
   <Project Path="ToDoList/MainCoursework.csproj" />
+  <Project Path="ToDoListApp/ToDoListApp.csproj" Id="49c0f2e9-d8f4-446e-9c42-5f5247ea959a" />
 </Solution>
