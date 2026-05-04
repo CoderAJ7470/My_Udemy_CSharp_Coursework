@@ -26,11 +26,13 @@ var rectangleOne = new Rectangle(10, 5); // using the default built-in construct
 
 Console.WriteLine($"The width is {rectangleOne.Width}");
 Console.WriteLine($"The height is {rectangleOne.Height}");
+Console.WriteLine($"The perimeter is {rectangleOne.CalculatePerimeter()} and the area is {rectangleOne.CalculateArea()}");
 
 var rectangleTwo = new Rectangle(20, 8);
 
 Console.WriteLine($"The width is {rectangleTwo.Width}");
 Console.WriteLine($"The height is {rectangleTwo.Height}");
+Console.WriteLine($"The perimeter is {rectangleTwo.CalculatePerimeter()} and the area is {rectangleTwo.CalculateArea()}");
 
 Console.ReadKey();
 
@@ -43,6 +45,16 @@ class Rectangle
     {
         Width = width;
         Height = height;
+    }
+
+    public int CalculatePerimeter()
+    {
+        return 2 * Width + 2 * Height;
+    }
+
+    public int CalculateArea()
+    {
+        return Width * Height;
     }
 }
 

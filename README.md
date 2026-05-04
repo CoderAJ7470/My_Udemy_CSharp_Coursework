@@ -49,3 +49,4 @@ All paths in a non-void method must return a value
 ## Naming conventions
 - Any public name should use Pascal casing
 - Any private field should start with an underscore followed by a lowercase letter
+- The name of a method should alway start with a verb
