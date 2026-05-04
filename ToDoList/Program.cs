@@ -22,17 +22,28 @@
 
 // Creating a custom class
 
-//Console.ReadKey();
+var rectangleOne = new Rectangle(10, 5); // using the default built-in constructor since we have not written our own
 
-var rectangleOne = new Rectangle(); // using the default built-in constructor since we have not written our own
+Console.WriteLine($"The width is {rectangleOne.Width}");
+Console.WriteLine($"The height is {rectangleOne.Height}");
 
-Console.WriteLine($"The width is {rectangleOne.width}");
-Console.WriteLine($"The height is {rectangleOne.height}");
+var rectangleTwo = new Rectangle(20, 8);
+
+Console.WriteLine($"The width is {rectangleTwo.Width}");
+Console.WriteLine($"The height is {rectangleTwo.Height}");
+
+Console.ReadKey();
 
 class Rectangle
 {
-    public int width;
-    public int height;
+    public int Width;
+    public int Height;
+
+    public Rectangle(int width, int height)
+    {
+        Width = width;
+        Height = height;
+    }
 }
 
 
