@@ -1,40 +1,24 @@
-﻿// Lists - Section 2, Lesson 58
+﻿// Sec 3, lesson 68 - Introduction to OOP
 
-var words = new List<string>
-{
-    "one",
-    "two"
-};
+// Some fun with the DateTime object to get information about international pizza day
+var internationalPizzaDay2026 = new DateTime(2026, 2, 9);
+var intlPizzaDay26Year = internationalPizzaDay2026.Year;
+var intlPizzaDay26Month = internationalPizzaDay2026.Month;
+var intlPizzaDay26Day = internationalPizzaDay2026.Day;
+var pizzaDayOfTheWeek26 = internationalPizzaDay2026.DayOfWeek;
 
-foreach (var word in words)
-{
-    Console.WriteLine(word);
-}
+Console.WriteLine($"International pizza day in 2026 was on {intlPizzaDay26Month}/{intlPizzaDay26Day}/{intlPizzaDay26Year}\n");
+Console.WriteLine($"This year, it fell on a {pizzaDayOfTheWeek26}");
 
-var moreWords = new[] { "three", "four", "five", "six" };
+var internationalPizzaDay2027 = internationalPizzaDay2026.AddYears(1);
 
-// AddRange is a method that adds/appends a given array or list to the end of an existing List
-words.AddRange(moreWords);
+var intlPizzaDay27Year = internationalPizzaDay2027.Year;
+var intlPizzaDay27Month = internationalPizzaDay2027.Month;
+var intlPizzaDay27Day = internationalPizzaDay2027.Day;
+var pizzaDayOfTheWeek27 = internationalPizzaDay2027.DayOfWeek;
 
-Console.WriteLine("\nAfter adding more words:\n");
-foreach (var word in words)
-{
-    Console.WriteLine(word);
-}
-
-// Some handy properties and methods that can be used with Lists
-// Count
-Console.WriteLine($"The current length of \"words\" is {words.Count}");
-
-// Can also use IndexOf method to get a given element's index in the List
-Console.WriteLine($"The index of \"four\" is {words.IndexOf("four")}");
-
-// Another method to use with Lists is Contains
-Console.WriteLine($"Does \"five\" exist in the List? {words.Contains("five")}");
-Console.WriteLine($"Does \"eight\" exist in the List? {words.Contains("eight")}");
-
-// Last but not least - Clear - which removes all elements in the List
-words.Clear();
-Console.WriteLine($"Length of \"words\" after clearing all elements is {words.Count}");
+Console.WriteLine($"\nInternational pizza day in 2027 will be on {intlPizzaDay26Month}/{intlPizzaDay26Day}/{intlPizzaDay26Year}\n");
+Console.WriteLine($"It will fall on a {pizzaDayOfTheWeek27}");
 
 Console.ReadKey();
+
