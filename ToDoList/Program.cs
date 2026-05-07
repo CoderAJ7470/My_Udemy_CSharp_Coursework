@@ -1,60 +1,50 @@
-﻿// Sec 3, lesson 68 - Introduction to OOP
-
-// Some fun with the DateTime object to get information about international pizza day
-//var internationalPizzaDay2026 = new DateTime(2026, 2, 9);
-//var intlPizzaDay26Year = internationalPizzaDay2026.Year;
-//var intlPizzaDay26Month = internationalPizzaDay2026.Month;
-//var intlPizzaDay26Day = internationalPizzaDay2026.Day;
-//var pizzaDayOfTheWeek26 = internationalPizzaDay2026.DayOfWeek;
-
-//Console.WriteLine($"International pizza day in 2026 was on {intlPizzaDay26Month}/{intlPizzaDay26Day}/{intlPizzaDay26Year}\n");
-//Console.WriteLine($"This year, it fell on a {pizzaDayOfTheWeek26}");
-
-//var internationalPizzaDay2027 = internationalPizzaDay2026.AddYears(1);
-
-//var intlPizzaDay27Year = internationalPizzaDay2027.Year;
-//var intlPizzaDay27Month = internationalPizzaDay2027.Month;
-//var intlPizzaDay27Day = internationalPizzaDay2027.Day;
-//var pizzaDayOfTheWeek27 = internationalPizzaDay2027.DayOfWeek;
-
-//Console.WriteLine($"\nInternational pizza day in 2027 will be on {intlPizzaDay26Month}/{intlPizzaDay26Day}/{intlPizzaDay26Year}\n");
-//Console.WriteLine($"It will fall on a {pizzaDayOfTheWeek27}");
-
-// Creating a custom class
-
-var rectangleOne = new Rectangle(10, 5); // using the default built-in constructor since we have not written our own
-
-Console.WriteLine($"The width is {rectangleOne.Width}");
-Console.WriteLine($"The height is {rectangleOne.Height}");
-Console.WriteLine($"The perimeter is {rectangleOne.CalculatePerimeter()} and the area is {rectangleOne.CalculateArea()}");
-
-var rectangleTwo = new Rectangle(20, 8);
-
-Console.WriteLine($"The width is {rectangleTwo.Width}");
-Console.WriteLine($"The height is {rectangleTwo.Height}");
-Console.WriteLine($"The perimeter is {rectangleTwo.CalculatePerimeter()} and the area is {rectangleTwo.CalculateArea()}");
+﻿// Sec 3, lesson 80 - the "this" keyword
 
 Console.ReadKey();
 
-class Rectangle
+class MedicalAppointmentPrint
 {
-    public int Width;
-    public int Height;
-
-    public Rectangle(int width, int height)
+    public void Print(MedicalAppointment medAppointment)
     {
-        Width = width;
-        Height = height;
+        Console.WriteLine($"Your appointment is scheduled for {medAppointment.GetDate()}");
+    }
+}
+
+class MedicalAppointment
+{
+    private string _patientName;
+    private DateTime _date;
+
+    // shorthand for returning data/value from a method
+    public DateTime GetDate() => _date;
+
+    public MedicalAppointment(string patientName, DateTime date)
+    {
+        _patientName = patientName;
+        _date = date;
     }
 
-    public int CalculatePerimeter()
-    {
-        return 2 * Width + 2 * Height;
+    // Overloaded constructor #1 of MedicalAppointment constructor above
+    // calls the constructor below in a shorthand format using the "this" keyword to refer to
+    // the constructor below, and then passing the pertinent arguments to the method
+    // signature below
+    public MedicalAppointment(string patientName): this(patientName, 7)
+    {        
     }
 
-    public int CalculateArea()
+    // Overloaded constructor #2
+    public MedicalAppointment(string patientName, int daysFromNow)
     {
-        return Width * Height;
+        _patientName = patientName;
+        _date = DateTime.Now.AddDays(daysFromNow);
+    }
+
+    public void Reschedule(DateTime date)
+    {
+        _date = date;
+        var print = new MedicalAppointmentPrint();
+
+        print.Print(this);
     }
 }
 
