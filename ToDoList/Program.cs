@@ -24,16 +24,11 @@ class MedicalAppointment
         _date = date;
     }
 
-    // Overloaded constructor #1 of MedicalAppointment constructor above
-    // calls the constructor below in a shorthand format using the "this" keyword to refer to
-    // the constructor below, and then passing the pertinent arguments to the method
-    // signature below. This reduces code duplication.
-    public MedicalAppointment(string patientName): this(patientName, 7)
-    {        
-    }
-
-    // Overloaded constructor #2
-    public MedicalAppointment(string patientName, int daysFromNow)
+    // Overloaded constructor #1
+    // Instead of doing public MedicalAppointment(string patientName): this(patientName, 7)
+    // like we did previously to call the constructor below in shorthand, we can have an optional
+    // parameter for the daysFromNow
+    public MedicalAppointment(string patientName, int daysFromNow = 7)
     {
         _patientName = patientName;
         _date = DateTime.Now.AddDays(daysFromNow);

@@ -50,3 +50,13 @@ All paths in a non-void method must return a value
 - Any public name should use Pascal casing
 - Any private field should start with an underscore followed by a lowercase letter
 - The name of a method should alway start with a verb
+
+# Section 3, Lesson 81
+- Optional parameters must come after all required parameters in the method signature
+- They must also be set to compile-time constant i.e., their value cannot be derived from expressions or other methods that will be evaluated at run time
+- In case there are two constructors, one with one required parameter, the other with one required and one optional parameter, and a call like this is made:
+	- var nameOnly = new MedicalAppointment("Sam");
+	- the constructor with the required parameter of type string and variable "name" will be used. The other constructor with the string name and optional parameter of type int and variable days will not be used
+	- Same goes for any overloaded mthod with a similar setup
+	- ** So in the case of ambiguity, the constructors/methods with no optional parameters will be used
+- 
