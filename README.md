@@ -59,4 +59,14 @@ All paths in a non-void method must return a value
 	- the constructor with the required parameter of type string and variable "name" will be used. The other constructor with the string name and optional parameter of type int and variable days will not be used
 	- Same goes for any overloaded mthod with a similar setup
 	- ** So in the case of ambiguity, the constructors/methods with no optional parameters will be used
-- 
+
+# Section 3, Lesson 83
+- The readonly modifier makes fields readable only; they cannot be modified directly outside a class
+	- It's good practice to make fields readonly whenever possible
+	- Making all fields of an object makes the entire object immutable i.e. it cannot be changed once it is created
+	- You can set the values of readonly fields in the constructor of a class, but not change them directly
+	- So you cannot do something like this: reactangle1.Width = 10;
+	- readonly is used on fiels when it is known for sure that their values will not change after they are set in the constructor
+- The const modifier can be assigned only to variables and fields
+	- Must be given a compile-time constant; not doing so will result in a run-time error
+	- Constants are named using PascalCase
