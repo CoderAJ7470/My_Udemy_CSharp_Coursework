@@ -70,3 +70,7 @@ All paths in a non-void method must return a value
 - The const modifier can be assigned only to variables and fields
 	- Must be given a compile-time constant; not doing so will result in a run-time error
 	- Constants are named using PascalCase
+
+# Section 3, Lesson 86
+- Object initializers can be used instead of calling constructors to initialize a class
+- The "init" setter is a one-time setter that only initializes a class' properties during class initialization; after that, any property with an init will behave like it only has a getter, not a setter
