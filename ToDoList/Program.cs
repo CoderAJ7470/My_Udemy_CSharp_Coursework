@@ -1,25 +1,21 @@
-﻿// Section 3, Lesson 86 - Object initializers
+﻿// Section 3, Lesson 89 - Static classes and static methods
 
-// Normally, using a constructor, we can initialize the Person object using its constructor, like so:
-// var person = new Person("John", 2000);
+var calculator = new Calculator();
 
-// But we can also initialize the Person object with an object initializer:
-var person = new Person
+Console.WriteLine($"1 + 2 equals {calculator.Add(1, 2)}");
+Console.WriteLine($"1 - 2 equals {calculator.Subtract(1, 2)}");
+Console.WriteLine($"1 * 2 equals {calculator.Multiply(1, 2)}");
+
+// Note that both this object and the one above are indentical - this class is a stateles class, since it only has methods and no fields
+var calculatorTwo = new Calculator();
+
+Console.WriteLine($"34 + 678 equals {calculatorTwo.Add(34, 678)}");
+
+Console.ReadKey();
+
+class Calculator
 {
-    Name = "Sally",
-    YearOfBirth = 1987
-};
-
-class Person
-{
-    public string Name { get; set; }
-    public int YearOfBirth { get; set; }
-
-    // Now we do not need the constructor as we are initializing the class with an object initializer (above)
-
-    //public Person(string name, int yearOfBirth)
-    //{
-    //    Name = name;
-    //    YearOfBirth = yearOfBirth;
-    //}
+    public int Add(int a, int b) => a + b;
+    public int Subtract(int a, int b) => a - b;
+    public int Multiply(int a, int b) => a * b;
 }
