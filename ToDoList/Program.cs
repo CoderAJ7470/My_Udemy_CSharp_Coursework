@@ -6,8 +6,9 @@ Console.WriteLine($"1 * 2 equals {Calculator.Multiply(1, 2)}");
 
 Console.ReadKey();
 
-class Calculator
+static class Calculator
 {
+    // Expression-bodied methods
     public static int Add(int a, int b) => a + b;
     public static int Subtract(int a, int b) => a - b;
     public static int Multiply(int a, int b) => a * b;

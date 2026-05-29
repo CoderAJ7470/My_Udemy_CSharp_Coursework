@@ -76,6 +76,13 @@ All paths in a non-void method must return a value
 - The "init" setter is a one-time setter that only initializes a class' properties during class initialization; after that, any property with an init will behave like it only has a getter, not a setter
 
 # Section 3, Lesson 89 - Static classes and static methods
-- Static methods are useful when it is uneccesary to create a new instance of a class rthat does not have fields i.e. it is stateless. Rather than creating a new instance of the class everytime just wirth a defaultg constructor, you can access properties/methods directly by calling them with the class' name, instead of instantiating the class with the "new" keyword.
-- Static methods/properties belong to the class as a whole, not an instance of the class
-- Static methods/properties cannot access instance data i.e. fields of a class or data returned by other properties of the class
+- Static methods
+	- Static methods are useful when it is uneccesary to create a new instance of a class rthat does not have fields i.e. it is stateless. Rather than creating a new instance of the class everytime just with a defaultg constructor, you can access methods directly by calling them with the class' name, instead of instantiating the class with the "new" keyword.
+	- Static methods belong to the class as a whole, not an instance of the class
+	- Static methods cannot access instance data i.e. fields of a class or data returned by other properties of the class
+- Static classes
+	- When all methods of a class are static, the class itself can be made static with the "static" keyword
+	- Static classes can contain only static methods
+- ** If a private method does not use any instance data i.e. field values, make it static
+- Const fields
+	- All const fields are implicitly static
