@@ -4,6 +4,8 @@
     <File Path="README.md" />
   </Folder>
   <Project Path="Calculator/Sec2_Calculator.csproj" Id="fcae541c-3c01-477d-b116-86310bc636d2" />
+  <Project Path="SingleResponsibilityPrinciple/SRPBeforeRefactoring.csproj" Id="15fcc4e7-f49e-4962-9d1a-31892f65f488" />
+  <Project Path="SRP_AfterRefactoring/SRPAfterRefactoring.csproj" Id="1619cf7c-6603-4d2d-b158-befe1d6cb5a9" />
   <Project Path="ToDoList/MainCoursework.csproj" />
   <Project Path="ToDoListApp/ToDoListApp.csproj" Id="49c0f2e9-d8f4-446e-9c42-5f5247ea959a" />
 </Solution>

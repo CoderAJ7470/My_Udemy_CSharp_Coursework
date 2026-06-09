@@ -86,3 +86,7 @@ All paths in a non-void method must return a value
 - ** If a private method does not use any instance data i.e. field values, make it static
 - Const fields
 	- All const fields are implicitly static
+
+# Section 3, Lesson 91 - Refactoring the Names class so that it meets the Single Resposibility Principle (SRP) - Part 1
+- I have two projects in the ToDoList Solution - SRPBeforeRefactoring and SRPAfterRefactoring
+- The SRPAfterRefactoring contains all of the refactored code, which shows the refactored class "Names" that meets the SRP
