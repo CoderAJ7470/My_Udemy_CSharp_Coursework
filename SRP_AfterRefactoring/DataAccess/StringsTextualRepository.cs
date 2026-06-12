@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-// File-scoped namespace declaration - you don't need to have the class inside the brace brackets - in C# V10 and newer
+﻿// File-scoped namespace declaration - you don't need to have the class inside the brace brackets - in C# V10 and newer
 namespace SRPAfterRefactoring.DataAccess;
 
 class StringsTextualRepository

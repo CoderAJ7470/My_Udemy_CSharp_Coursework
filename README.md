@@ -90,3 +90,9 @@ All paths in a non-void method must return a value
 # Section 3, Lesson 91 - Refactoring the Names class so that it meets the Single Resposibility Principle (SRP) - Part 1
 - I have two projects in the ToDoList Solution - SRPBeforeRefactoring and SRPAfterRefactoring
 - The SRPAfterRefactoring contains all of the refactored code, which shows the refactored class "Names" that meets the SRP
+
+# Section 3, Lesson 95 - Global Using Directives
+- Greyed-out using statements like System.Linq, System.Collections.Generic etc can be removed safely from auto-generated files since they are also generated in a .g.cs file in the project's obj folder and used globally from there anyway; so it is redundant to have them in an auto-generated file in you project
+- In general, it is good practice to remove greyed-out (unused) statements at the top of your file/s
+- Ideally, a separate file is created foir global using statements
+- The "global using" directive is available from C# V10 onwards (not avaiable below that version)

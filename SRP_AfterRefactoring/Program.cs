@@ -4,6 +4,9 @@ var names = new Names();
 var path = new NamesFilePathBuilder().BuildFilePath();
 var stringsTextualRepository = new StringsTextualRepository();
 
+// This method has nothing to do with the rest of the names code. I am calling this static method here only to demonstrate the usage of the global using directive
+Global_Using_Example.usingSystemDiagnosticsExampleMethod();
+
 if (File.Exists(path))
 {
     Console.WriteLine("Names file already exists. Loading names.");
