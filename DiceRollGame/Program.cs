@@ -36,7 +36,7 @@ void RunProgram()
 
             Console.WriteLine("Good try but your guess is incorrect!");
 
-            Console.WriteLine($"You have {counter.GuessesRemaining} guesses remaining.\n");
+            Console.WriteLine($"You have {counter.GuessesRemaining} {(counter.GuessesRemaining == 1 ? "guess" : "guesses")} remaining.\n");
         }
 
         userGuess = userInput.GetUserInput();
