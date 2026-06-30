@@ -1,6 +1,4 @@
-﻿using System;
-
-public class RandomNumber
+﻿public class RandomNumber
 {
     // Generate a random number from 1 to 6 (inclusive of both)
     public int GenerateRandomNumber()
