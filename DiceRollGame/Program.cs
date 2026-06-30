@@ -3,12 +3,11 @@ var userInput = new UserInput();
 var inputValidation = new InputValidation();
 var randomNumber = new RandomNumber();
 var counter = new Counter();
-var messages = new Messages();
+var messages = new ProgramFunctions();
 
 void RunProgram()
 {
     int generatedNumber = randomNumber.GenerateRandomNumber();
-    Console.WriteLine("Generated number: " + generatedNumber);
 
     instructions.ShowInstructions();
 

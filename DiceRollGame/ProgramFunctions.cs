@@ -1,4 +1,4 @@
-﻿public class Messages
+﻿public class ProgramFunctions
 {
     public void HandleProgramExit(string userInput, bool isReturning = false)
     {
