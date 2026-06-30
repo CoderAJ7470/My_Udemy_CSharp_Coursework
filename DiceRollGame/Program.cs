@@ -21,7 +21,8 @@ void RunProgram()
 
         if (parsedGuess == generatedNumber)
         {
-            Console.WriteLine("Congratulations! You guessed correctly!");
+            Console.WriteLine("Congratulations! You guessed correctly!\n" +
+                "Press any key to exit.");
             break;
         }
         else
@@ -30,7 +31,8 @@ void RunProgram()
 
             if (counter.GuessesRemaining == 0)
             {
-                Console.WriteLine($"You ran out of guesses. The number was {generatedNumber}.");
+                Console.WriteLine($"You ran out of guesses. The number was {generatedNumber}.\n" +
+                    $"Press any key to exit.");
                 break;
             }
 
