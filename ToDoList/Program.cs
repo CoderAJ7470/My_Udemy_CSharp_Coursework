@@ -7,6 +7,11 @@ pizza.AddIngredient(new Mozzarella());
 
 Console.WriteLine(pizza.Describe());
 
+var cheddar = new Cheddar();
+
+// Can call this method that exists in the Ingredient class on an instance of the Cheddar class b/c Cheddar extends Ingreditent i.e. Cheddar is a derived from Ingredient
+Console.WriteLine("\n" + cheddar.PublicMethod());
+
 Console.ReadKey();
 
 public class Pizza
@@ -18,9 +23,10 @@ public class Pizza
     public string Describe() => $"This is a pizza with {string.Join(", ", _ingredients)}";
 }
 
+// Base class - any class extending this class can use variables and/or methods in this class
 public class Ingredient
 {
-
+    public string PublicMethod() => "This string being returned from a public method in the Ingredient class";
 }
 
 public class Cheddar : Ingredient
