@@ -1,15 +1,42 @@
-﻿// Section 3, Lesson 89 - Static classes and static methods
+﻿// Section 4 - Lesson 104
 
-Console.WriteLine($"1 + 2 equals {Calculator.Add(1, 2)}");
-Console.WriteLine($"1 - 2 equals {Calculator.Subtract(1, 2)}");
-Console.WriteLine($"1 * 2 equals {Calculator.Multiply(1, 2)}");
+var pizza = new Pizza();
+pizza.AddIngredient(new Cheddar());
+pizza.AddIngredient(new TomatoSauce());
+pizza.AddIngredient(new Mozzarella());
+
+Console.WriteLine(pizza.Describe());
 
 Console.ReadKey();
 
-static class Calculator
+public class Pizza
 {
-    // Expression-bodied methods
-    public static int Add(int a, int b) => a + b;
-    public static int Subtract(int a, int b) => a - b;
-    public static int Multiply(int a, int b) => a * b;
+    private List<Ingredient> _ingredients = new List<Ingredient>();
+
+    public void AddIngredient(Ingredient ingredient) => _ingredients.Add(ingredient);
+
+    public string Describe() => $"This is a pizza with {string.Join(", ", _ingredients)}";
+}
+
+public class Ingredient
+{
+
+}
+
+public class Cheddar : Ingredient
+{
+    public string Name => "Cheddar Cheese";
+    public int AgedForMonths { get; }
+}
+
+public class TomatoSauce : Ingredient
+{
+    public string Name => "Tomato Suace";
+    public int TomatoesIn100Grams { get; } // How many tomatoes are in 100 grams of sauce?
+}
+
+public class Mozzarella : Ingredient
+{
+    public string Name => "Mozzarella";
+    public bool IsLight { get; } // is the mozzarella a light mozzarella
 }

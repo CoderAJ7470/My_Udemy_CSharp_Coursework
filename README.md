@@ -96,3 +96,12 @@ All paths in a non-void method must return a value
 - In general, it is good practice to remove greyed-out (unused) statements at the top of your file/s
 - Ideally, a separate file is created foir global using statements
 - The "global using" directive is available from C# V10 onwards (not avaiable below that version)
+
+# Section 4, Lesson 104 - A need for polymorphism
+- The provision of a single interface to entities of different types is called polymorphism
+- In the case of our simple pizza example, we have the generic conept of an ingredient, and this concept can be made more concrete by multiple types - cheddar, mozzarella and tomato sauce
+	- All of these types can be used wherever the generic concept is needed (in the ingredients list)
+
+# Section 4, Lesson 105 - Inheritance
+- Inheritance is something that enables us to create new classes that reuse, extend and modify the behavior defined in other classes
+- The class from which we are inheriting is called the base class, and the class which is doing the job of inheriting is called the derived class
