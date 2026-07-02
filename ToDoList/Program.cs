@@ -13,6 +13,13 @@ var cheddar = new Cheddar();
 Console.WriteLine("\n" + cheddar.PublicMethod());
 cheddar.CallingMethodsFromTheBaseClass();
 
+var ingredient = new Ingredient();
+ingredient.PublicIntTypeField = 10;
+
+cheddar.PublicIntTypeField = 20;
+
+Console.WriteLine($"\nValue of PublicIntTypeField in Ingredient: {ingredient.PublicIntTypeField}; value of PublicIntTypeField in Cheddar: {cheddar.PublicIntTypeField}");
+
 Console.ReadKey();
 
 public class Pizza
@@ -27,6 +34,9 @@ public class Pizza
 // Base class - any class extending this class can use variables and/or methods in this class
 public class Ingredient
 {
+    // can be accessed in any derived class of this class, but the derived class CAN change the value set here i.e. the derived class does not have to use the value declared here, it can set its own value to this same field
+    public int PublicIntTypeField;
+
     // Can be used on an instance of any class derived from this class OR inside the derived class itself
     public string PublicMethod() => "This string is being returned from a public method in the Ingredient class";
     

@@ -105,3 +105,9 @@ All paths in a non-void method must return a value
 # Section 4, Lesson 105 - Inheritance
 - Inheritance is something that enables us to create new classes that reuse, extend and modify the behavior defined in other classes
 - The class from which we are inheriting is called the base class, and the class which is doing the job of inheriting is called the derived class
+
+# Section 4, Lesson 106 - Inherited members from the base class - Protected modifier
+- We have three types of access modifiers - public, private and protected
+	- Public: Methods/properties can be fully accessed both, in the derived class as well as an instance of that class
+	- Private: Methods/properties can only be accessed in the base class and nowhere else
+	- Protected: Methods/properties can be accessed directly inside the derived class, BUT NOT on the instance of that class. Of course, they can also be accessed in the base class also.
