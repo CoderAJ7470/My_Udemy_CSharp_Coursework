@@ -31,7 +31,7 @@ public class Ingredient
     public string PublicMethod() => "This string is being returned from a public method in the Ingredient class";
     
     // Can be used ONLY in this class
-    private string PrivateMethod() => "This string is being returned from a private method in the Ingredient class";
+    private string PrivateMethod() => "\nThis string is being returned from a private method in the Ingredient class";
     
     // Can be used ONLY INSIDE the DERIVED class, but not on an instance of it
     protected string ProtectedMethod() => "This string is being returned from a protected method in the Ingredient class";
@@ -44,8 +44,10 @@ public class Cheddar : Ingredient
 
     public void CallingMethodsFromTheBaseClass()
     {
-        Console.WriteLine("Calling the Ingredient class public method directly inside the " +
+        Console.WriteLine("\nCalling the Ingredient class public method directly inside the " +
             $"Cheddar class: {PublicMethod()}");
+        Console.WriteLine("\nCalling the Ingredient class protected method directly inside the " +
+            $"Cheddar class: {ProtectedMethod()}");
     }
 }
 
