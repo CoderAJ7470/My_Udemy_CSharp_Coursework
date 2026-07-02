@@ -9,8 +9,9 @@ Console.WriteLine(pizza.Describe());
 
 var cheddar = new Cheddar();
 
-// Can call this method that exists in the Ingredient class on an instance of the Cheddar class b/c Cheddar extends Ingreditent i.e. Cheddar is a derived from Ingredient
+// Can call this method that exists in the Ingredient class on an instance of the Cheddar class b/c Cheddar extends Ingreditent i.e. Cheddar is a derived from Ingredient. Note that only public methods can be called in the derived class, not private methods
 Console.WriteLine("\n" + cheddar.PublicMethod());
+cheddar.CallingMethodsFromTheBaseClass();
 
 Console.ReadKey();
 
@@ -26,13 +27,26 @@ public class Pizza
 // Base class - any class extending this class can use variables and/or methods in this class
 public class Ingredient
 {
-    public string PublicMethod() => "This string being returned from a public method in the Ingredient class";
+    // Can be used on an instance of any class derived from this class OR inside the derived class itself
+    public string PublicMethod() => "This string is being returned from a public method in the Ingredient class";
+    
+    // Can be used ONLY in this class
+    private string PrivateMethod() => "This string is being returned from a private method in the Ingredient class";
+    
+    // Can be used ONLY INSIDE the DERIVED class, but not on an instance of it
+    protected string ProtectedMethod() => "This string is being returned from a protected method in the Ingredient class";
 }
 
 public class Cheddar : Ingredient
 {
     public string Name => "Cheddar Cheese";
     public int AgedForMonths { get; }
+
+    public void CallingMethodsFromTheBaseClass()
+    {
+        Console.WriteLine("Calling the Ingredient class public method directly inside the " +
+            $"Cheddar class: {PublicMethod()}");
+    }
 }
 
 public class TomatoSauce : Ingredient
