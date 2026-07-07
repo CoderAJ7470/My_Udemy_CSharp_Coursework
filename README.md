@@ -111,3 +111,19 @@ All paths in a non-void method must return a value
 	- Public: Methods/properties can be fully accessed both, in the derived class as well as an instance of that class
 	- Private: Methods/properties can only be accessed in the base class and nowhere else
 	- Protected: Methods/properties can be accessed directly inside the derived class, BUT NOT on the instance of that class. Of course, they can also be accessed in the base class also.
+
+# Section 4, Lesson 107 - Virtual methods and properties
+- A virtual method/property is one which maybe present in a derived class i.e. if the base class has a method, and the derived class has a method/property of the same name, that method/property, as the case maybe is a virtual method/property.
+	- As such, virtual methods/properties maybe overriden in the derived class
+	- The caveat here is that the "override" keyword must be used for that method/property in the derived class, otherwise this does not work as intended, AND
+	- The base class property/method of that same name must be marked virtual with the "virtual" keyword
+- In the case of our example from the code: Ingredient ingredient2 = new Cheddar();
+- Then calling the Name property on ingredient2 like so: ingredient2.Name; (remember, Name only has a getter and is public)
+	- Initially, we did not mark the Name property in the Cheddar class with "override", we only marked the base class property "Name" in Ingredient "virtual"
+	- So C# thought "Ok, well since the Name property in Ingredient is virtual but the Name property in Cheddar is not marked "override", so I will just use the proprty value from Ingredient
+		- So in this case, we get the value of Name from Ingredient - "Some ingredient", not "Cheddar" as we expect
+	- After we mark the Namne prperty in Cheddar "override", we see "Cheddar cheese" as the output from the call ingrdient2.Name, as we expected
+		- This is b/c C#'s engine now knows that the Ingrdient "Name" is virtual AND the Cheddar class "Name" is an overiding property of the base class Name
+		- BOTH, marking the Ingrdient Name "virtual" and the Cheddar (derived class) Name "override" are required for this to work correctly.
+			- Marking the Cheddar (derived) Name "override" without marking Ingredient Name "virtual" will result in a runtime error
+			- Marking the base class Name property "virtual" without marking the derived class poerty "override" will result in the base class property value being shown in the console log.
