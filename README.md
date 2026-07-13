@@ -127,3 +127,17 @@ All paths in a non-void method must return a value
 		- BOTH, marking the Ingrdient Name "virtual" and the Cheddar (derived class) Name "override" are required for this to work correctly.
 			- Marking the Cheddar (derived) Name "override" without marking Ingredient Name "virtual" will result in a runtime error
 			- Marking the base class Name property "virtual" without marking the derived class poerty "override" will result in the base class property value being shown in the console log.
+	
+	# Section 4, Lesson 110 - Multiple Inheritance (why the authors of C# decided not make multiple inheritance a part of the language)
+	- Let's take an example: Two classes named HousePet and Dog, both inherit from a base class named Animal
+		- Let's say each class has a method named MakesSound
+		- Now let's add another class called Terrier that inherits from Dog
+		- One might think that it should also inherit from the HousePet class (since it is a HousePet) but that is not possible - a class cannot inherit from more than one class at a time
+		- The reason for this being that the C# engine cannot decide which class' MakesSound method to use at runtime - the one from HousePet or the one from Dog?
+			- This is called the "Diamond Problem" - illustrated by a base class, then two classes below that inherit from that, then one class below that level that inherits from both of the classes above it
+		- Technically, though multiple inheritance is not built-in in C#, it is possible through inheritance (discussed later in the course)
+	
+	# Section 4, Lesson 111 - System.Object and the ToString Method
+	- In C#, all classes including user-defined ones are derived from a "master base" class called Object (System.Object)
+	- The methods contained in Object (like Name, Equals, ToString etc) are so essential and widely used that the creators of C# decided all classes should get access to them
+	- If a method of the base Object class is used e.g. ToString in any other class and it is not overridden in that particular class, then the base implementation of the Object class will be used

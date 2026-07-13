@@ -1,47 +1,25 @@
 ﻿// Section 4 - Lesson 109 - Inheritance Hierarchy
 
-var pizza = new Pizza();
-pizza.AddIngredient(new Cheddar());
-pizza.AddIngredient(new TomatoSauce());
-pizza.AddIngredient(new Mozzarella());
+//var pizza = new Pizza();
+//pizza.AddIngredient(new Cheddar());
+//pizza.AddIngredient(new TomatoSauce());
+//pizza.AddIngredient(new Mozzarella());
 
-Console.WriteLine(pizza.Describe());
+//Console.WriteLine(pizza.Describe());
+
+using MainCoursework.Animals;
 
 var cheddar = new Cheddar();
 
-// Can call this method that exists in the Ingredient class on an instance of the Cheddar class b/c Cheddar extends Ingreditent i.e. Cheddar is a derived from Ingredient. Note that only public methods can be called in the derived class, not private methods
-Console.WriteLine("\n" + cheddar.PublicMethod());
-cheddar.CallingMethodsFromTheBaseClass();
+// Each will print the type's full name
+Console.WriteLine(new TomatoSauce()); // prints "TomatoSauce"
+Console.WriteLine(new HousePet()); // prints MainCoursework.Animals.Housepet
+Console.WriteLine(new List<int>()); // prints System.Collections.Generic.List`1[System.Int32]
 
-var ingredient = new Ingredient();
-ingredient.PublicIntTypeField = 10;
-
-cheddar.PublicIntTypeField = 20;
-
-Console.WriteLine($"\nValue of PublicIntTypeField in Ingredient: {ingredient.PublicIntTypeField}; value of PublicIntTypeField in Cheddar: {cheddar.PublicIntTypeField}");
-
-// Exposing the public "Name" property from the Cheddar class:
-Console.WriteLine($"\nExposing the Cheddar class Name property value gives us: {cheddar.Name}");
-
-// We can do this and it is perfectly valid in C#. This is b/c Cheddar is an Ingredient and vice-versa:
-Ingredient ingredient2 = new Cheddar();
-Console.WriteLine($"\nValue returned after assigning ingredient2 a new Cheddar object, AND marking a. Ingredient Name \"virtual\" and b. marking derived class Name properties \"override\": {ingredient2}");
-
-// Creating a new List of Ingredients
-var ingredients = new List<Ingredient>
-{
-    new Cheddar(),
-    new TomatoSauce(),
-    new Mozzarella()
-};
-
-Console.WriteLine("\nOutputting the list of ingredients (Name property values) from derived classes:");
-
-// Iterating over the above List
-foreach (var ingredientName in ingredients)
-{
-    Console.WriteLine(ingredientName);
-}
+// Each will print the passed-in string, or string conversion if required via the ToString method
+Console.WriteLine($"\n{123}"); // prints "123"
+Console.WriteLine(new DateTime(2026, 7, 13)); // prints 7/13/2026 12:00:00 AM
+Console.WriteLine("Hello"); // prints "Hello"
 
 Console.ReadKey();
 
@@ -91,6 +69,12 @@ public class Cheddar : Cheese
         Console.WriteLine("\nCalling the Ingredient class protected method directly inside the " +
             $"Cheddar class: {ProtectedMethod()}");
     }
+}
+
+// This class is just demonstrate the concept of linear inheritance
+public class ItalianFoodItem
+{
+
 }
 
 public class Mozzarella : Cheese
