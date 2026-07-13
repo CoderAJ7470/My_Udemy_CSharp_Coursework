@@ -1,25 +1,11 @@
-﻿// Section 4 - Lesson 109 - Inheritance Hierarchy
+﻿// Section 4 - Lesson 111
 
-//var pizza = new Pizza();
-//pizza.AddIngredient(new Cheddar());
-//pizza.AddIngredient(new TomatoSauce());
-//pizza.AddIngredient(new Mozzarella());
+var pizza = new Pizza();
+pizza.AddIngredient(new Cheddar());
+pizza.AddIngredient(new TomatoSauce());
+pizza.AddIngredient(new Mozzarella());
 
-//Console.WriteLine(pizza.Describe());
-
-using MainCoursework.Animals;
-
-var cheddar = new Cheddar();
-
-// Each will print the type's full name
-Console.WriteLine(new TomatoSauce()); // prints "TomatoSauce"
-Console.WriteLine(new HousePet()); // prints MainCoursework.Animals.Housepet
-Console.WriteLine(new List<int>()); // prints System.Collections.Generic.List`1[System.Int32]
-
-// Each will print the passed-in string, or string conversion if required via the ToString method
-Console.WriteLine($"\n{123}"); // prints "123"
-Console.WriteLine(new DateTime(2026, 7, 13)); // prints 7/13/2026 12:00:00 AM
-Console.WriteLine("Hello"); // prints "Hello"
+Console.WriteLine(pizza.Describe());
 
 Console.ReadKey();
 
@@ -36,6 +22,9 @@ public class Pizza
 public class Ingredient
 {
     public virtual string Name { get; } = "Some ingredient";
+
+    // Overriding the Object class ToString method. Because we are a. overriding this method that is present in the "master base" class Object, and b. printing the 
+    public override string ToString() => Name;
 
     // can be accessed in any derived class of this class, but the derived class CAN change the value set here i.e. the derived class does not have to use the value declared here, it can set its own value to this same field
     public int PublicIntTypeField;
@@ -71,15 +60,9 @@ public class Cheddar : Cheese
     }
 }
 
-// This class is just demonstrate the concept of linear inheritance
-public class ItalianFoodItem
-{
-
-}
-
 public class Mozzarella : Cheese
 {
-    public string Name => "Mozzarella";
+    public override string Name => "Mozzarella";
     public bool IsLight { get; } // is the mozzarella a light mozzarella
 }
 
