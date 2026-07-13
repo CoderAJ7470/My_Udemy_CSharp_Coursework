@@ -5,7 +5,7 @@ pizza.AddIngredient(new Cheddar());
 pizza.AddIngredient(new TomatoSauce());
 pizza.AddIngredient(new Mozzarella());
 
-Console.WriteLine(pizza.Describe());
+Console.WriteLine(pizza.ToString());
 
 Console.ReadKey();
 
@@ -15,7 +15,8 @@ public class Pizza
 
     public void AddIngredient(Ingredient ingredient) => _ingredients.Add(ingredient);
 
-    public string Describe() => $"This is a pizza with {string.Join(", ", _ingredients)}";
+    // We have overriden the ToString Object class method here instead of keepiung the original name "Describe", since anyone trying to access the Describe method would see the name of the class when calling the ToString method on an instance of the Pizza class (Pizza object). This would cause unnecessary confusion and one would have to dig into the Pizza class code to see there is a method named "Describe". So we override the Object class' ToString method here instead to keep things to standard.
+    public override string ToString() => $"This is a pizza with {string.Join(", ", _ingredients)}";
 }
 
 // Base class - any class extending this class can use variables and/or methods in this class
