@@ -1,11 +1,17 @@
-﻿// Section 4 - Lesson 111
+﻿// Section 4 - Lesson 112
 
-var pizza = new Pizza();
-pizza.AddIngredient(new Cheddar());
-pizza.AddIngredient(new TomatoSauce());
-pizza.AddIngredient(new Mozzarella());
+//var pizza = new Pizza();
+//pizza.AddIngredient(new Cheddar());
+//pizza.AddIngredient(new TomatoSauce());
+//pizza.AddIngredient(new Mozzarella());
 
-Console.WriteLine(pizza.ToString());
+//Console.WriteLine(pizza.ToString());
+
+// ---------------------------
+
+
+// To demonstrate that when you have default constructors in both, the base and derived classes, which constructor is called? Note that both, the Ingredient class and Cheddar class constructors have been explicitly declared in their respective classes. So in this case, the base class constructor is called first, followed by the derived class constructor
+var cheddar = new Cheddar();
 
 Console.ReadKey();
 
@@ -22,6 +28,11 @@ public class Pizza
 // Base class - any class extending this class can use variables and/or methods in this class
 public class Ingredient
 {
+    public Ingredient()
+    {
+        Console.WriteLine("This is the Ingredient class constructor.");
+    }
+
     public virtual string Name { get; } = "Some ingredient";
 
     // Overriding the Object class ToString method. Because we are a. overriding this method that is present in the "master base" class Object, and b. printing the 
@@ -46,8 +57,13 @@ public class Cheese: Ingredient
 
 }
 
-public class Cheddar : Cheese
+public class Cheddar : Ingredient
 {
+    public Cheddar()
+    {
+        Console.WriteLine("This is the Cheddar class constructor.");
+    }
+
     // The "override" keyword here is overriding the base class (Ingredient) property "Name"
     public override string Name => "Cheddar Cheese";
     public int AgedForMonths { get; }

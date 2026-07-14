@@ -141,3 +141,6 @@ All paths in a non-void method must return a value
 	- In C#, all classes including user-defined ones are derived from a "master base" class called Object (System.Object)
 	- The methods contained in Object (like Name, Equals, ToString etc) are so essential and widely used that the creators of C# decided all classes should get access to them
 	- If a method of the base Object class is used e.g. ToString in any other class and it is not overridden in that particular class, then the base implementation of the Object class will be used
+
+	# Section 4, Lesson 112 - Inheriting constructors and the "base" keyword
+	- 
