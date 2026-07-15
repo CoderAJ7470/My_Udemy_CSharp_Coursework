@@ -8,10 +8,13 @@
 //Console.WriteLine(pizza.ToString());
 
 // ---------------------------
+const int priceOfExtraToppingIngredient = 1;
+var ingredient = new Ingredient(priceOfExtraToppingIngredient);
 
-
-// To demonstrate that when you have default constructors in both, the base and derived classes, which constructor is called? Note that both, the Ingredient class and Cheddar class constructors have been explicitly declared in their respective classes. So in this case, the base class constructor is called first, followed by the derived class constructor
-var cheddar = new Cheddar();
+// Creating a Cheddar object like this, the constructor from the base class is called first, passing in "2" as the argument - the argument we are passing in to the Cheddar constructor
+const int priceOfExtraCheddarTopping = 2;
+const int monthsAged = 7;
+var cheddar = new Cheddar(priceOfExtraCheddarTopping, monthsAged);
 
 Console.ReadKey();
 
@@ -28,10 +31,14 @@ public class Pizza
 // Base class - any class extending this class can use variables and/or methods in this class
 public class Ingredient
 {
-    public Ingredient()
+    public Ingredient(int extraToppingPrice)
     {
         Console.WriteLine("This is the Ingredient class constructor.");
+
+        PriceForExtraTopping = extraToppingPrice;
     }
+
+    public int PriceForExtraTopping { get; }
 
     public virtual string Name { get; } = "Some ingredient";
 
@@ -52,16 +59,20 @@ public class Ingredient
 }
 
 // To illustrate inheritance hierarchy
-public class Cheese: Ingredient
+public class Cheese : Ingredient
 {
-
+    public Cheese(int extraToppingPrice) : base(extraToppingPrice)
+    {
+    }
 }
 
 public class Cheddar : Ingredient
 {
-    public Cheddar()
+    public Cheddar(int extraToppingPrice, int agedForMonths) : base(extraToppingPrice)
     {
         Console.WriteLine("This is the Cheddar class constructor.");
+
+        AgedForMonths = agedForMonths;
     }
 
     // The "override" keyword here is overriding the base class (Ingredient) property "Name"
@@ -79,12 +90,20 @@ public class Cheddar : Ingredient
 
 public class Mozzarella : Cheese
 {
+    public Mozzarella(int extraToppingPrice) : base(extraToppingPrice)
+    {
+    }
+
     public override string Name => "Mozzarella";
     public bool IsLight { get; } // is the mozzarella a light mozzarella
 }
 
 public class TomatoSauce : Ingredient
 {
+    public TomatoSauce(int extraToppingPrice) : base(extraToppingPrice)
+    {
+    }
+
     public override string Name => "Tomato Sauce";
     public int TomatoesIn100Grams { get; } // How many tomatoes are in 100 grams of sauce?
 }
