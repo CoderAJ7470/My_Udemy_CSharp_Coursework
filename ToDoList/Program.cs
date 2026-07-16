@@ -16,6 +16,8 @@ const int priceOfExtraCheddarTopping = 2;
 const int monthsAged = 7;
 var cheddar = new Cheddar(priceOfExtraCheddarTopping, monthsAged);
 
+Console.WriteLine(cheddar);
+
 Console.ReadKey();
 
 public class Pizza
@@ -36,11 +38,13 @@ public class Ingredient
         Console.WriteLine("This is the Ingredient class constructor.");
 
         PriceForExtraTopping = extraToppingPrice;
+
+        Console.WriteLine($"Output from the private method in the Ingredient class: {PrivateMethod()}");
     }
 
     public int PriceForExtraTopping { get; }
 
-    public virtual string Name { get; } = "Some ingredient";
+    public virtual string Name { get; } = "Ingredient";
 
     // Overriding the Object class ToString method. Because we are a. overriding this method that is present in the "master base" class Object, and b. printing the 
     public override string ToString() => Name;
@@ -76,7 +80,7 @@ public class Cheddar : Ingredient
     }
 
     // The "override" keyword here is overriding the base class (Ingredient) property "Name"
-    public override string Name => "Cheddar Cheese";
+    public override string Name => $"This {base.Name} is Cheddar cheese, aged for {AgedForMonths} months.";
     public int AgedForMonths { get; }
 
     public void CallingMethodsFromTheBaseClass()
