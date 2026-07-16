@@ -142,5 +142,6 @@ All paths in a non-void method must return a value
 	- The methods contained in Object (like Name, Equals, ToString etc) are so essential and widely used that the creators of C# decided all classes should get access to them
 	- If a method of the base Object class is used e.g. ToString in any other class and it is not overridden in that particular class, then the base implementation of the Object class will be used
 
-	# Section 4, Lesson 112 - Inheriting constructors and the "base" keyword
-	- 
+	# Section 4, Lesson 113 - Implicit conversion
+	- Implicit conversion is that where a data type conversion takes place without the need to have a typecast in brackets e.g. Season spring = (Season) seasonNumber;
+	- Implicit conversion can be done only when the conversion from one data type to another is safe and lossless

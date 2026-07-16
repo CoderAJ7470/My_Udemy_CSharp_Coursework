@@ -1,24 +1,26 @@
-﻿// Section 4 - Lesson 112
+﻿// Section 4, Lesson 113
 
-//var pizza = new Pizza();
-//pizza.AddIngredient(new Cheddar());
-//pizza.AddIngredient(new TomatoSauce());
-//pizza.AddIngredient(new Mozzarella());
+// Example of explicit conversion
+int seasonNumber = 0;
+Season spring = (Season) seasonNumber;
 
-//Console.WriteLine(pizza.ToString());
+// The "m" here is required, otherwise the compiler will complain that we are trying to assign a double to a decimal
+// "m" was chosen because it stands for money, the storing of which is the primary purpose of decimals
+decimal anyNumber = 10.01m;
+int anyOtherNumber = 10;
 
-// ---------------------------
-const int priceOfExtraToppingIngredient = 1;
-var ingredient = new Ingredient(priceOfExtraToppingIngredient);
-
-// Creating a Cheddar object like this, the constructor from the base class is called first, passing in "2" as the argument - the argument we are passing in to the Cheddar constructor
-const int priceOfExtraCheddarTopping = 2;
-const int monthsAged = 7;
-var cheddar = new Cheddar(priceOfExtraCheddarTopping, monthsAged);
-
-Console.WriteLine(cheddar);
+// This is implicit conversion - no typecasting needed. Since anyOtherNumber is an int, it can also be cast as a decimal/double, because decimals/doubles do not nececcarily have to have a decimal point
+anyNumber = anyOtherNumber;
 
 Console.ReadKey();
+
+public enum Season
+{
+    Spring,
+    Summer,
+    Fall,
+    Winter
+}
 
 public class Pizza
 {
