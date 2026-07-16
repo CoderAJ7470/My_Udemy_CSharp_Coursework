@@ -12,6 +12,10 @@ int anyOtherNumber = 10;
 // This is implicit conversion - no typecasting needed. Since anyOtherNumber is an int, it can also be cast as a decimal/double, because decimals/doubles do not nececcarily have to have a decimal point
 anyNumber = anyOtherNumber;
 
+// Explicit conversion. Note that the part of the decimal after the decimal point will be omitted.
+decimal anyOtherOtherNumber = 5.5m;
+int anyOtherInteger = (int) anyOtherOtherNumber;
+
 Console.ReadKey();
 
 public enum Season
