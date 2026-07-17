@@ -16,6 +16,18 @@ anyNumber = anyOtherNumber;
 decimal anyOtherOtherNumber = 5.5m;
 int anyOtherInteger = (int) anyOtherOtherNumber;
 
+// Here for illustration purposes only - this will cause a runtime error since the max number the integer type can hold is 2 billion something
+// decimal howBoutYetAnother = 100000000000000000000.1m;
+// int yetAnotherInteger = (int) howdyInteger!
+
+// Here, we get a compiler error, since the compiler knows before-hand that we cannot cast an integer to a string. If you really wanted to do this, you will have to use the ToString method
+// string firstString = (string)anyOtherInteger;
+
+// An example of when no error occurs (compile or runtime), but the output is erroneous. Here of course, this is a small error, but in much larger programs, such hidden errors might cause big problems
+int secondSeasonNumber = 11; // the programmer types "11" by mistake
+Season summer = (Season)secondSeasonNumber;
+Console.WriteLine(summer); // Will be "11" instead of "1" as was expected
+
 Console.ReadKey();
 
 public enum Season
