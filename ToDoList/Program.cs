@@ -1,12 +1,24 @@
 ﻿// Section 4, Lesson 115
 
-// An example of upcasting, since we are converting a derived class to a base class. Here, we can do this since Chaeddar is an Ingredient i.e. a class derived from Ingredient
 Ingredient ingredient = new Cheddar(2, 12);
 
-// Does not work, because not every Ingredient can be Cheddar
-// Cheddar cheddar = ingredient;
+Ingredient randomIngredient = GenerateRandomIngredient();
+Console.WriteLine("The random ingredient is " + randomIngredient);
+
+// throws a runtime error when the GenerateRandomIngredient method returns "Mozzarella" or "TomatoSauce"; will work if the returned object is actually Cheddar
+Cheddar cheddar = (Cheddar) randomIngredient;
 
 Console.ReadKey();
+
+Ingredient GenerateRandomIngredient()
+{
+    var random = new Random();
+    var number = random.Next(1, 4);
+    if (number == 1) return new Cheddar(2, 12);
+    if (number == 2) return new TomatoSauce(1);
+
+    else return new Mozzarella(2);
+}
 
 public enum Season
 {
