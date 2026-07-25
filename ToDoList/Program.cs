@@ -1,32 +1,10 @@
-﻿// Section 4, Lesson 113
+﻿// Section 4, Lesson 115
 
-// Example of explicit conversion
-int seasonNumber = 0;
-Season spring = (Season) seasonNumber;
+// An example of upcasting, since we are converting a derived class to a base class. Here, we can do this since Chaeddar is an Ingredient i.e. a class derived from Ingredient
+Ingredient ingredient = new Cheddar(2, 12);
 
-// The "m" here is required, otherwise the compiler will complain that we are trying to assign a double to a decimal
-// "m" was chosen because it stands for money, the storing of which is the primary purpose of decimals
-decimal anyNumber = 10.01m;
-int anyOtherNumber = 10;
-
-// This is implicit conversion - no typecasting needed. Since anyOtherNumber is an int, it can also be cast as a decimal/double, because decimals/doubles do not nececcarily have to have a decimal point
-anyNumber = anyOtherNumber;
-
-// Explicit conversion. Note that the part of the decimal after the decimal point will be omitted.
-decimal anyOtherOtherNumber = 5.5m;
-int anyOtherInteger = (int) anyOtherOtherNumber;
-
-// Here for illustration purposes only - this will cause a runtime error since the max number the integer type can hold is 2 billion something
-// decimal howBoutYetAnother = 100000000000000000000.1m;
-// int yetAnotherInteger = (int) howdyInteger!
-
-// Here, we get a compiler error, since the compiler knows before-hand that we cannot cast an integer to a string. If you really wanted to do this, you will have to use the ToString method
-// string firstString = (string)anyOtherInteger;
-
-// An example of when no error occurs (compile or runtime), but the output is erroneous. Here of course, this is a small error, but in much larger programs, such hidden errors might cause big problems
-int secondSeasonNumber = 11; // the programmer types "11" by mistake
-Season summer = (Season)secondSeasonNumber;
-Console.WriteLine(summer); // Will be "11" instead of "1" as was expected
+// Does not work, because not every Ingredient can be Cheddar
+// Cheddar cheddar = ingredient;
 
 Console.ReadKey();
 
