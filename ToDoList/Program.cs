@@ -1,23 +1,12 @@
-﻿// Section 4, Lesson 115
+﻿// Section 4, Lesson 117 - Null
 
-Ingredient ingredient = new Cheddar(2, 12);
+var pizza = new Pizza();
+Console.WriteLine(pizza.number); // default value is printed, which is 0
+Console.WriteLine(pizza.date); // default value is printed, which is 1/1/0001 12:00:00 AM
+// since we have not assigned any values to these variables in the Pizza class
 
-Ingredient randomIngredient = GenerateRandomIngredient();
-Console.WriteLine("The random ingredient is " + randomIngredient);
-
-// Will give true or false depending on the condition being checked
-Console.WriteLine($"is an object? {ingredient is object}");
-Console.WriteLine($"is ingredient? {ingredient is Ingredient}");
-Console.WriteLine($"is cheddar? {ingredient is Cheddar}");
-Console.WriteLine($"is mozzarella? {ingredient is Mozzarella}");
-Console.WriteLine($"is tomato sauce? {ingredient is TomatoSauce}");
-
-// Will work if the random ingredient generated is Cheddar, otherwise this will throw an exception. So we use the
-// "is" keyword to ensure that the randomIngredient variable is of type Cheddar
-if (randomIngredient is Cheddar cheddar)
-{
-    Console.WriteLine("Cheddar object: " + cheddar); // the cheddar variable is only accessible in the if block
-}
+// The value here is "null", which means that a field or variable (in this case, the ingredient variable) does not hold any instance. However, "null" is not actually printed to the console, since null means empty.
+Console.WriteLine(pizza.ingredient);
 
 Console.ReadKey();
 
@@ -41,6 +30,10 @@ public enum Season
 
 public class Pizza
 {
+    public Ingredient ingredient;
+
+    public int number;
+    public DateTime date;
     private List<Ingredient> _ingredients = new List<Ingredient>();
 
     public void AddIngredient(Ingredient ingredient) => _ingredients.Add(ingredient);
