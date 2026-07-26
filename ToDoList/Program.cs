@@ -5,8 +5,19 @@ Ingredient ingredient = new Cheddar(2, 12);
 Ingredient randomIngredient = GenerateRandomIngredient();
 Console.WriteLine("The random ingredient is " + randomIngredient);
 
-// throws a runtime error when the GenerateRandomIngredient method returns "Mozzarella" or "TomatoSauce"; will work if the returned object is actually Cheddar
-Cheddar cheddar = (Cheddar) randomIngredient;
+// Will give true or false depending on the condition being checked
+Console.WriteLine($"is an object? {ingredient is object}");
+Console.WriteLine($"is ingredient? {ingredient is Ingredient}");
+Console.WriteLine($"is cheddar? {ingredient is Cheddar}");
+Console.WriteLine($"is mozzarella? {ingredient is Mozzarella}");
+Console.WriteLine($"is tomato sauce? {ingredient is TomatoSauce}");
+
+// Will work if the random ingredient generated is Cheddar, otherwise this will throw an exception. So we use the
+// "is" keyword to ensure that the randomIngredient variable is of type Cheddar
+if (randomIngredient is Cheddar cheddar)
+{
+    Console.WriteLine("Cheddar object: " + cheddar); // the cheddar variable is only accessible in the if block
+}
 
 Console.ReadKey();
 

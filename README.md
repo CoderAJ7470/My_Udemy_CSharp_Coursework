@@ -145,3 +145,14 @@ All paths in a non-void method must return a value
 	# Section 4, Lesson 113 - Implicit conversion
 	- Implicit conversion is that where a data type conversion takes place without the need to have a typecast in brackets e.g. Season spring = (Season) seasonNumber;
 	- Implicit conversion can be done only when the conversion from one data type to another is safe and lossless
+
+	# Section 4, Lessons 114-116 - Upcasting and downcasting
+	- Converting a derived type to a base type is called upcasting, and the reverse is called downcasting
+		- E.g. BaseClass baseClass = new DerivedClass(some_stuff);
+		- This is possible since an object of the derived type is also an object of the base type
+	- Downcasting requires an explicit cast
+		- E.g. DerivedClass derivedClass = new BaseClass();
+		- This requires being careful since a variable of the base type can store an object that is not convertible to the derived type
+		- From the example in Program.cs, randomIngredient could store TomatoSauce and in that case, converting it to Cheddar will fail
+		- So we have to check if the cast is successfgul with the "is" operator
+		- Usually, downcasting should not be required so if it is, the code design should be checked
