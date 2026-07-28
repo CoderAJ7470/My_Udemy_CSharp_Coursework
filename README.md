@@ -156,3 +156,6 @@ All paths in a non-void method must return a value
 		- From the example in Program.cs, randomIngredient could store TomatoSauce and in that case, converting it to Cheddar will fail
 		- So we have to check if the cast is successfgul with the "is" operator
 		- Usually, downcasting should not be required so if it is, the code design should be checked
+
+	# Section 4, Lesson 119 - Abstract classes
+	- Abstract classes cannot be instantiated. They only serve as base classes for other, more concrete types.
