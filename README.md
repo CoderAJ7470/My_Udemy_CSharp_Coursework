@@ -159,3 +159,11 @@ All paths in a non-void method must return a value
 
 	# Section 4, Lesson 119 - Abstract classes
 	- Abstract classes cannot be instantiated. They only serve as base classes for other, more concrete types.
+
+	# Section 4, Lesson 120 - Abstract methods
+	- First need to re-visit what virtual methods are - methods that may be overidden in derived classes
+	- Abstract methods - can only be defined in abstract classes
+		- They don't have implementations, so their bodies are empty
+		- All abstract methods are implicitly virtual, so it is possible to override them in derived classes (in fact it is expected these will be overriden in derived classes)
+		- If the derived class is also abstract, we do not need to override the base class abstract method
+	

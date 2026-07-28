@@ -1,40 +1,6 @@
-﻿// Section 4, Lesson 118 - The "as" operator
-
-Ingredient ingredient = GenerateRandomIngredient();
-Console.WriteLine("Ingredient is " + ingredient);
-
-// Cheddar cheddar = (Cheddar) ingredient; -> This causes an exception if the cast fails
-Cheddar cheddar = ingredient as Cheddar;
-
-if (cheddar is not null)
-{
-    Console.WriteLine(cheddar.Name);
-} else
-{
-    Console.WriteLine("Conversion Failed");
-}
-
-//int number = ingredient as int --> this will result to null, but obviously null cannot be assigned to an integer
+﻿// Section 4, Lesson 120 - Abstract classes
 
 Console.ReadKey();
-
-Ingredient GenerateRandomIngredient()
-{
-    var random = new Random();
-    var number = random.Next(1, 4);
-    if (number == 1) return new Cheddar(2, 12);
-    if (number == 2) return new TomatoSauce(1);
-
-    else return new Mozzarella(2);
-}
-
-public enum Season
-{
-    Spring,
-    Summer,
-    Fall,
-    Winter
-}
 
 public class Pizza
 {
@@ -51,7 +17,7 @@ public class Pizza
 }
 
 // Base class - any class extending this class can use variables and/or methods in this class
-public class Ingredient
+public abstract class Ingredient
 {
     public Ingredient(int extraToppingPrice)
     {
@@ -65,6 +31,9 @@ public class Ingredient
     public int PriceForExtraTopping { get; }
 
     public virtual string Name { get; } = "Ingredient";
+
+    // Abstract method
+    public abstract void Prepare();
 
     // Overriding the Object class ToString method. Because we are a. overriding this method that is present in the "master base" class Object, and b. printing the 
     public override string ToString() => Name;
@@ -83,7 +52,7 @@ public class Ingredient
 }
 
 // To illustrate inheritance hierarchy
-public class Cheese : Ingredient
+public abstract class Cheese : Ingredient
 {
     public Cheese(int extraToppingPrice) : base(extraToppingPrice)
     {
@@ -110,6 +79,8 @@ public class Cheddar : Ingredient
         Console.WriteLine("\nCalling the Ingredient class protected method directly inside the " +
             $"Cheddar class: {ProtectedMethod()}");
     }
+
+    public override void Prepare() => Console.WriteLine("Grate and sprinkle over the pizza");
 }
 
 public class Mozzarella : Cheese
@@ -120,6 +91,11 @@ public class Mozzarella : Cheese
 
     public override string Name => "Mozzarella";
     public bool IsLight { get; } // is the mozzarella a light mozzarella
+
+    public override void Prepare()
+    {
+        Console.WriteLine("Slice thinly and place last on the pizza.");
+    }
 }
 
 public class TomatoSauce : Ingredient
@@ -130,4 +106,6 @@ public class TomatoSauce : Ingredient
 
     public override string Name => "Tomato Sauce";
     public int TomatoesIn100Grams { get; } // How many tomatoes are in 100 grams of sauce?
+
+    public override void Prepare() => Console.WriteLine("Cook tomatoes with basil, garlic and salt. Then spread on the pizza base.");
 }
