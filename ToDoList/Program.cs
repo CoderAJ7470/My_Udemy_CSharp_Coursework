@@ -1,12 +1,20 @@
-﻿// Section 4, Lesson 117 - Null
+﻿// Section 4, Lesson 118 - The "as" operator
 
-var pizza = new Pizza();
-Console.WriteLine(pizza.number); // default value is printed, which is 0
-Console.WriteLine(pizza.date); // default value is printed, which is 1/1/0001 12:00:00 AM
-// since we have not assigned any values to these variables in the Pizza class
+Ingredient ingredient = GenerateRandomIngredient();
+Console.WriteLine("Ingredient is " + ingredient);
 
-// The value here is "null", which means that a field or variable (in this case, the ingredient variable) does not hold any instance. However, "null" is not actually printed to the console, since null means empty.
-Console.WriteLine(pizza.ingredient);
+// Cheddar cheddar = (Cheddar) ingredient; -> This causes an exception if the cast fails
+Cheddar cheddar = ingredient as Cheddar;
+
+if (cheddar is not null)
+{
+    Console.WriteLine(cheddar.Name);
+} else
+{
+    Console.WriteLine("Conversion Failed");
+}
+
+//int number = ingredient as int --> this will result to null, but obviously null cannot be assigned to an integer
 
 Console.ReadKey();
 
