@@ -1,5 +1,7 @@
 ﻿// Section 4, Lesson 120 - Abstract classes
 
+using System.Threading.Channels;
+
 Console.ReadKey();
 
 public class Pizza
@@ -107,5 +109,15 @@ public class TomatoSauce : Ingredient
     public override string Name => "Tomato Sauce";
     public int TomatoesIn100Grams { get; } // How many tomatoes are in 100 grams of sauce?
 
-    public override void Prepare() => Console.WriteLine("Cook tomatoes with basil, garlic and salt. Then spread on the pizza base.");
+    public sealed override void Prepare() => Console.WriteLine("Cook tomatoes with basil, garlic and salt. Then spread on the pizza base.");
+}
+
+public class SpecialTomatoSauce : TomatoSauce
+{
+    public SpecialTomatoSauce(int extraToppingPrice) : base(extraToppingPrice)
+    {
+    }
+
+    // Will not compile, since the Prepare method is sealed in the TomatoSauce (base) class.
+    //public override void Prepare() => Console.WriteLine("Special tomato sauce.");
 }

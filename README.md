@@ -167,3 +167,25 @@ All paths in a non-void method must return a value
 		- All abstract methods are implicitly virtual, so it is possible to override them in derived classes (in fact it is expected these will be overriden in derived classes)
 		- If the derived class is also abstract, we do not need to override the base class abstract method
 	
+	# Section 4, Lesson 121 - Why the need for abstract methods?
+	- To recap:
+		- Abstract methods do not provide any implementation
+		- All derived types must provide their own implementation
+		- They are implicitly (already) virtual
+		- On the other hand, virtual methods provide a default implementation in the base class, which can be overriden in the derived class
+		- Virtual methods can be declared in both, abstract and non-absract classes
+
+	# Section 4, Lesson 122 - Sealed classes and methods
+	- Sometimes, we want to prevent a class or method from being inherited. To do this, C# gives us the "sealed" modifier.
+		- Only virtual, overriden methods can be sealed.
+		- Sealed types are not used often
+		- Sealed was used a lot by the creators of the C# standard library
+		- As a rule of thumb, we must avoid sealing classes unless we know for sure what the outcome will be
+
+	# Section 4, Lesson 123 - Static class are sealed classes
+	- All static classes are automatically (implicitly) sealed, since we cannot derive from them
+		-  They are sealed because they only contain static methods, which cannot be overridden
+		- The whole point of overriding is to have a specific implementation of a method used when executed on a specific instance
+
+	# 
+	
