@@ -1,8 +1,33 @@
-﻿// Section 4, Lesson 120 - Abstract classes
+﻿// Section 4, Lesson 124 - Extension methods
 
-using System.Threading.Channels;
+using MainCoursework;
+using MainCoursework.Extensions;
+
+// Example of multiline text
+var multilineText = @"aaaa
+bbbb
+cccc
+dddd";
+
+Console.WriteLine("Count of lines is " + multilineText.CountLines());
+
+// Above method can also be called like this, since the StringExtensions class is static:
+Console.WriteLine("Count of lines is " + StringExtensions.CountLines(multilineText));
+
+Console.WriteLine($"The season that comes after Spring is {Season.Spring.Next()}");
+Console.WriteLine($"The season that comes after Winter is {Season.Winter.Next()}");
+
+
 
 Console.ReadKey();
+
+public enum Season
+{
+    Spring,
+    Summer,
+    Fall,
+    Winter
+}
 
 public class Pizza
 {

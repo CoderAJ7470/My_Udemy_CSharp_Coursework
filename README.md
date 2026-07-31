@@ -128,64 +128,70 @@ All paths in a non-void method must return a value
 			- Marking the Cheddar (derived) Name "override" without marking Ingredient Name "virtual" will result in a runtime error
 			- Marking the base class Name property "virtual" without marking the derived class poerty "override" will result in the base class property value being shown in the console log.
 	
-	# Section 4, Lesson 110 - Multiple Inheritance (why the authors of C# decided not make multiple inheritance a part of the language)
-	- Let's take an example: Two classes named HousePet and Dog, both inherit from a base class named Animal
-		- Let's say each class has a method named MakesSound
-		- Now let's add another class called Terrier that inherits from Dog
-		- One might think that it should also inherit from the HousePet class (since it is a HousePet) but that is not possible - a class cannot inherit from more than one class at a time
-		- The reason for this being that the C# engine cannot decide which class' MakesSound method to use at runtime - the one from HousePet or the one from Dog?
-			- This is called the "Diamond Problem" - illustrated by a base class, then two classes below that inherit from that, then one class below that level that inherits from both of the classes above it
-		- Technically, though multiple inheritance is not built-in in C#, it is possible through inheritance (discussed later in the course)
+# Section 4, Lesson 110 - Multiple Inheritance (why the authors of C# decided not make multiple inheritance a part of the language)
+- Let's take an example: Two classes named HousePet and Dog, both inherit from a base class named Animal
+	- Let's say each class has a method named MakesSound
+	- Now let's add another class called Terrier that inherits from Dog
+	- One might think that it should also inherit from the HousePet class (since it is a HousePet) but that is not possible - a class cannot inherit from more than one class at a time
+	- The reason for this being that the C# engine cannot decide which class' MakesSound method to use at runtime - the one from HousePet or the one from Dog?
+		- This is called the "Diamond Problem" - illustrated by a base class, then two classes below that inherit from that, then one class below that level that inherits from both of the classes above it
+	- Technically, though multiple inheritance is not built-in in C#, it is possible through inheritance (discussed later in the course)
 	
-	# Section 4, Lesson 111 - System.Object and the ToString Method
-	- In C#, all classes including user-defined ones are derived from a "master base" class called Object (System.Object)
-	- The methods contained in Object (like Name, Equals, ToString etc) are so essential and widely used that the creators of C# decided all classes should get access to them
-	- If a method of the base Object class is used e.g. ToString in any other class and it is not overridden in that particular class, then the base implementation of the Object class will be used
+# Section 4, Lesson 111 - System.Object and the ToString Method
+- In C#, all classes including user-defined ones are derived from a "master base" class called Object (System.Object)
+- The methods contained in Object (like Name, Equals, ToString etc) are so essential and widely used that the creators of C# decided all classes should get access to them
+- If a method of the base Object class is used e.g. ToString in any other class and it is not overridden in that particular class, then the base implementation of the Object class will be used
 
-	# Section 4, Lesson 113 - Implicit conversion
-	- Implicit conversion is that where a data type conversion takes place without the need to have a typecast in brackets e.g. Season spring = (Season) seasonNumber;
-	- Implicit conversion can be done only when the conversion from one data type to another is safe and lossless
+# Section 4, Lesson 113 - Implicit conversion
+- Implicit conversion is that where a data type conversion takes place without the need to have a typecast in brackets e.g. Season spring = (Season) seasonNumber;
+- Implicit conversion can be done only when the conversion from one data type to another is safe and lossless
 
-	# Section 4, Lessons 114-116 - Upcasting and downcasting
-	- Converting a derived type to a base type is called upcasting, and the reverse is called downcasting
-		- E.g. BaseClass baseClass = new DerivedClass(some_stuff);
-		- This is possible since an object of the derived type is also an object of the base type
-	- Downcasting requires an explicit cast
-		- E.g. DerivedClass derivedClass = new BaseClass();
-		- This requires being careful since a variable of the base type can store an object that is not convertible to the derived type
-		- From the example in Program.cs, randomIngredient could store TomatoSauce and in that case, converting it to Cheddar will fail
-		- So we have to check if the cast is successfgul with the "is" operator
-		- Usually, downcasting should not be required so if it is, the code design should be checked
+# Section 4, Lessons 114-116 - Upcasting and downcasting
+- Converting a derived type to a base type is called upcasting, and the reverse is called downcasting
+	- E.g. BaseClass baseClass = new DerivedClass(some_stuff);
+	- This is possible since an object of the derived type is also an object of the base type
+- Downcasting requires an explicit cast
+	- E.g. DerivedClass derivedClass = new BaseClass();
+	- This requires being careful since a variable of the base type can store an object that is not convertible to the derived type
+	- From the example in Program.cs, randomIngredient could store TomatoSauce and in that case, converting it to Cheddar will fail
+	- So we have to check if the cast is successfgul with the "is" operator
+	- Usually, downcasting should not be required so if it is, the code design should be checked
 
-	# Section 4, Lesson 119 - Abstract classes
-	- Abstract classes cannot be instantiated. They only serve as base classes for other, more concrete types.
+# Section 4, Lesson 119 - Abstract classes
+- Abstract classes cannot be instantiated. They only serve as base classes for other, more concrete types.
 
-	# Section 4, Lesson 120 - Abstract methods
-	- First need to re-visit what virtual methods are - methods that may be overidden in derived classes
-	- Abstract methods - can only be defined in abstract classes
-		- They don't have implementations, so their bodies are empty
-		- All abstract methods are implicitly virtual, so it is possible to override them in derived classes (in fact it is expected these will be overriden in derived classes)
-		- If the derived class is also abstract, we do not need to override the base class abstract method
+# Section 4, Lesson 120 - Abstract methods
+- First need to re-visit what virtual methods are - methods that may be overidden in derived classes
+- Abstract methods - can only be defined in abstract classes
+	- They don't have implementations, so their bodies are empty
+	- All abstract methods are implicitly virtual, so it is possible to override them in derived classes (in fact it is expected these will be overriden in derived classes)
+	- If the derived class is also abstract, we do not need to override the base class abstract method
 	
-	# Section 4, Lesson 121 - Why the need for abstract methods?
-	- To recap:
-		- Abstract methods do not provide any implementation
-		- All derived types must provide their own implementation
-		- They are implicitly (already) virtual
-		- On the other hand, virtual methods provide a default implementation in the base class, which can be overriden in the derived class
-		- Virtual methods can be declared in both, abstract and non-absract classes
+# Section 4, Lesson 121 - Why the need for abstract methods?
+- To recap:
+	- Abstract methods do not provide any implementation
+	- All derived types must provide their own implementation
+	- They are implicitly (already) virtual
+	- On the other hand, virtual methods provide a default implementation in the base class, which can be overriden in the derived class
+	- Virtual methods can be declared in both, abstract and non-absract classes
 
-	# Section 4, Lesson 122 - Sealed classes and methods
-	- Sometimes, we want to prevent a class or method from being inherited. To do this, C# gives us the "sealed" modifier.
-		- Only virtual, overriden methods can be sealed.
-		- Sealed types are not used often
-		- Sealed was used a lot by the creators of the C# standard library
-		- As a rule of thumb, we must avoid sealing classes unless we know for sure what the outcome will be
+# Section 4, Lesson 122 - Sealed classes and methods
+- Sometimes, we want to prevent a class or method from being inherited. To do this, C# gives us the "sealed" modifier.
+	- Only virtual, overriden methods can be sealed.
+	- Sealed types are not used often
+	- Sealed was used a lot by the creators of the C# standard library
+	- As a rule of thumb, we must avoid sealing classes unless we know for sure what the outcome will be
 
-	# Section 4, Lesson 123 - Static class are sealed classes
-	- All static classes are automatically (implicitly) sealed, since we cannot derive from them
-		-  They are sealed because they only contain static methods, which cannot be overridden
-		- The whole point of overriding is to have a specific implementation of a method used when executed on a specific instance
+# Section 4, Lesson 123 - Static class are sealed classes
+- All static classes are automatically (implicitly) sealed, since we cannot derive from them
+	-  They are sealed because they only contain static methods, which cannot be overridden
+	- The whole point of overriding is to have a specific implementation of a method used when executed on a specific instance
 
-	# 
+# Section 4, Lesson 124 - Extension methods
+- Extension methods allow us to seemingly add methods to an existing type without modifying the type's source code.
+- Extension methods can only be defined in static classes, and they themselves need to be always static.
+- The "this" keyword is key - without it, the method is not an extension method
+- The parameter of the extended type must always come first, before any other parameters.
+- It is good practice to have extension methods of different types in their own classes.
+- Extension methods allow us to seemingly add methods to types that cannot have methods defined like enums (see example in Program.cs)
 	
