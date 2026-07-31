@@ -17,8 +17,6 @@ Console.WriteLine("Count of lines is " + StringExtensions.CountLines(multilineTe
 Console.WriteLine($"The season that comes after Spring is {Season.Spring.Next()}");
 Console.WriteLine($"The season that comes after Winter is {Season.Winter.Next()}");
 
-
-
 Console.ReadKey();
 
 public enum Season
